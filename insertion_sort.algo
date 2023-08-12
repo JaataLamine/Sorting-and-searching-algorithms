@@ -1,0 +1,27 @@
+/*
+This is a procedure that demonstrate
+how isertion sorting algorithm work
+*/
+PROCEDURE insertion_sort(VAR arr : ARRAY_OF INTEGER)
+VAR
+  // i and j are the counters,
+  // tmp is the temporary element in the array to sort
+  // n represent the length of the array
+  tmp, n, i, j: INTEGER;
+BEGIN
+  n := arr.length;
+  // The loop begin by index 1 in the array
+  FOR i FROM 1 TO n-1 STEP 1  DO
+    tmp := arr[i];  // The element in index 1 is store in tmp
+    j := i-1; // j is the position of the element
+
+    // Compare tmp to each element on his left
+    // Until element smaller than it is found
+    WHILE (j >= 0 AND tmp < arr[j]) DO
+      arr[j+1] := arr[j];
+      j := j-1;
+    END_WHILE
+    // If element smaller than tmp is found it is shift 
+    arr[j+1] := tmp;
+  END_FOR
+END
